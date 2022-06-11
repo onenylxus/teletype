@@ -1,0 +1,85 @@
+.tester {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.timer {
+  font-size: 21pt;
+  margin: 5px;
+  color: var(--color-tint);
+}
+
+.input {
+  display: flex;
+  height: 120px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 21pt;
+  user-select: none;
+  overflow: hidden;
+
+  .word {
+    position: relative;
+    margin: 0 5px 2px;
+
+    &.wrong {
+      text-decoration: 2px underline var(--color-tint);
+      animation: shake 0.1s ease;
+
+      @keyframes shake {
+        0% {
+          transform: translateX(5px);
+        }
+
+        50% {
+          transform: translateX(-5px);
+        }
+
+        100% {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+  
+  .extra {
+    opacity: 0.6;
+  }
+
+  .right {
+    color: var(--color-font);
+  }
+  
+  span.wrong {
+    color: var(--color-tint) !important;
+  }
+
+  #active {
+    position: relative;
+    width: max-content;
+  }
+
+  #caret {
+    position: absolute;
+    margin-left: -7.29165px;
+    color: var(--color-tint);
+    transition: left 0.1s ease;
+
+    &.blink {
+      animation: blink 1.5s infinite 1s;
+    }
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+  }
+}

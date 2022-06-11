@@ -1,6 +1,16 @@
-/* @refresh reload */
-import { render } from 'solid-js/web';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { store } from './services/store';
 import App from './App';
 import './index.scss';
 
-render(() => <App />, document.getElementById('root'));
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
