@@ -30,6 +30,28 @@ a {
   }
 }
 
+button {
+  margin: 10px;
+  border: 2px solid var(--color-font);
+  padding: 10px;
+  font-weight: 700;
+  background-color: var(--color-bg);
+  color: var(--color-font);
+  cursor: pointer;
+
+  &.option {
+    margin: 0;
+    border: none;
+    padding: 5px;
+    font-size: 12pt;
+  }
+
+  &:hover {
+    color: var(--color-tint);
+    border-color: var(--color-tint);
+  }
+}
+
 #root {
   display: flex;
   height: 100%;
