@@ -11,7 +11,6 @@ function backspace() {
   const index = list.indexOf(current);
   const element = ref.current;
 
-  console.log(typed);
   if (typed.length === 0 && history[index - 1] !== list[index - 1]) {
     dispatch(prevWord());
     element.previousElementSibling.classList.remove('right', 'wrong');
@@ -25,8 +24,14 @@ export const record = (key) => {
   const {
     pref: { limit },
     timer: { now, id },
-    tester: { current, typed, ref, caretRef },
+    tester: { list, history, current, typed, ref, caretRef },
   } = getState();
+
+  console.log({
+    pref: { limit },
+    timer: { now, id },
+    tester: { list, history, current, typed, ref, caretRef },
+  });
 
   if (now === 0) {
     if (key === 'Tab') {
@@ -39,17 +44,17 @@ export const record = (key) => {
     start();
   }
 
-  const element = ref ? ref.current : null;
+  const element = ref.current;
   element.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-  const caret = caretRef ? caretRef.current : null;
+  const caret = caretRef.current;
   caret.classList.remove('blink');
   setTimeout(() => caret.classList.add('blink'), 500);
 
   switch (key) {
     case ' ':
       if (typed !== '') {
-        element.classList.add(typed === current ? 'right' : 'wrong');
+        element.classList.add(typed !== current ? 'wrong' : 'right');
         dispatch(appendTyped());
       }
       break;

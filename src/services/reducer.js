@@ -18,7 +18,7 @@ function append(state) {
 
 function previous(state) {
   const i = state.list.indexOf(state.current) - 1;
-  return { history: state.history.splice(0, state.history.length - 1), current: state.list[i], typed: state.history[i] };
+  return { history: state.history.slice(0, state.history.length - 1), current: state.list[i], typed: state.history[i] };
 }
 
 const prefReducer = (state = initState.pref, { type, payload }) => {
