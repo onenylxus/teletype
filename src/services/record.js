@@ -54,7 +54,7 @@ export const record = (key) => {
   switch (key) {
     case ' ':
       if (typed !== '') {
-        element.classList.add(typed !== current ? 'wrong' : 'right');
+        element.classList.add(typed === current ? 'right' : 'wrong');
         dispatch(appendTyped());
       }
       break;

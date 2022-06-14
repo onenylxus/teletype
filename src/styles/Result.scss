@@ -1,0 +1,15 @@
+a {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+h1 {
+  margin: 8px 0;
+  font-weight: 700;
+  color: var(--color-font);
+}
+
+.wrong {
+  color: var(--color-tint);
+}

@@ -4,6 +4,7 @@ import { setTimerId } from './services/actions';
 import { record } from './services/record';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Result from './components/Result';
 import Tester from './components/Tester';
 
 export default function App() {
@@ -51,7 +52,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <Tester />
+      {now > 0 ? <Tester /> : <Result />}
       <Footer />
     </>
   );
