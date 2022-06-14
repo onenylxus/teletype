@@ -7,14 +7,13 @@ export default function Result() {
     pref: { limit },
     tester: { list, history, current },
   } = useSelector((state) => state);
-  const space = list.indexOf(current);
-  const result = history.map((word, i) => word === list[i]);
 
+  const result = history.map((word, i) => word === list[i]);
   let correct = 0;
   result.forEach((bool, i) => {
     correct += bool ? list[i].length : 0;
   });
-  const wpm = (correct + space) * 12 / limit;
+  const wpm = (correct + result.filter((bool) => bool).length) * 12 / limit;
 
   return (
     <div className="result">
