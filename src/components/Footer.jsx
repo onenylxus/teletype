@@ -1,17 +1,19 @@
+import { useSelector } from 'react-redux';
 import '../styles/Footer.scss';
 
 export default function Footer() {
+  const {
+    timer: { id },
+  } = useSelector((state) => state);
+
   return (
-    <footer>
-      <span>
-          created by {" "}
-					<a
-						target="_blank"
-						rel="noreferrer"
-						href="https://www.github.com/onenylxus">
-						onenylxus
-					</a>
-				</span>
-    </footer>
+    <div className={'bottom ' + (id ? 'hidden' : '')}>
+      <span className="hint">Press <kbd>Tab</kbd> to restart</span>
+      <footer>
+        <span>
+          created by {' '} <a target="_blank" rel="noreferrer" href="https://www.github.com/onenylxus">onenylxus</a>
+        </span>
+      </footer>
+    </div>
   );
 }

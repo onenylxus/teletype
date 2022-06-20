@@ -1,18 +1,38 @@
-footer {
-  display: flex;
+.bottom {
   position: relative;
   width: 50%;
-  margin: 50px 0;
   justify-content: center;
-  align-items: center;
-  font-weight: 700;
-  font-size: 12pt;
 
-  button, & > a {
-    width: 150px;
-    margin: 0;
-    border: none;
-    padding: 0 10px;
+  .hint {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		kbd {
+			padding: 2.5px 5px;
+			margin: 10px;
+			border-radius: 3px;
+			font-size: 9pt;
+			background-color: var(--color-fg);
+			color: var(--color-bg);
+		}
+	}
+
+  footer {
+    display: flex;
+    width: 100%;
+    margin: 50px 0;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
     font-size: 12pt;
+
+    button, & > a {
+      width: 150px;
+      margin: 0;
+      border: none;
+      padding: 0 10px;
+      font-size: 12pt;
+    }
   }
 }

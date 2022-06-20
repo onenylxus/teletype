@@ -60,7 +60,7 @@ export default function Header() {
   }, [dispatch]);
 
   return (
-    <header>
+    <header className={id ? 'hidden' : ''}>
       <a href="." className="logo">teletype</a>
       <div className="options">
         <div className="type" key="type">type<button className="option" onClick={(e) => toggleType(e)}>{type}</button></div>
