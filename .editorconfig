@@ -1,5 +1,5 @@
 # Visual Studio Code requires installing an extension in
-# order to override its code/wokrspace settings
+# order to override its code/workspace settings
 
 root = true
 

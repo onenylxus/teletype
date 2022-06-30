@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Result from './components/Result';
 import Tester from './components/Tester';
+import './themes.scss';
 
 export default function App() {
   const dispatch = useDispatch();

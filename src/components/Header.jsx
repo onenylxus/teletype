@@ -8,7 +8,7 @@ import '../styles/Header.scss';
 export const pref = {
   type: ['words'],
   limit: [15, 30, 60, 90, 120],
-  theme: ['default']
+  theme: ['dark', 'light']
 };
 
 export default function Header() {
@@ -22,7 +22,7 @@ export default function Header() {
   const toggleType = () => {
     if (type !== 0) {
       const i = (pref.type.indexOf(type) + 1) % pref.type.length;
-      dispatch(setType(pref.type[i]));
+      dispatch(setType(pref.type[i]), [dispatch, type]);
       localStorage.setItem('type', type);
       reset();
     }
@@ -31,7 +31,7 @@ export default function Header() {
   const toggleLimit = () => {
     if (limit !== 0) {
       const i = (pref.limit.indexOf(limit) + 1) % pref.limit.length;
-      dispatch(setLimit(pref.limit[i]));
+      dispatch(setLimit(pref.limit[i]), [dispatch, limit]);
       localStorage.setItem('limit', limit);
       reset();
     }
@@ -40,16 +40,15 @@ export default function Header() {
   const toggleTheme = () => {
     if (theme !== 0) {
       const i = (pref.theme.indexOf(theme) + 1) % pref.theme.length;
-      dispatch(setTheme(pref.theme[i]));
+      dispatch(setTheme(pref.theme[i]), [dispatch, theme]);
       localStorage.setItem('theme', theme);
-      reset();
     }
   };
 
   useEffect(() => {
     const type = localStorage.getItem('type') || 'words';
     const limit = +localStorage.getItem('limit') || 60;
-    const theme = localStorage.getItem('theme') || 'default';
+    const theme = localStorage.getItem('theme') || 'dark';
 
     dispatch(setType(type));
     dispatch(setLimit(limit));
@@ -58,6 +57,11 @@ export default function Header() {
     dispatch(setList(library[type]));
     dispatch(setTimer(limit));
   }, [dispatch]);
+
+  useEffect(() => {
+    document.body.children[1].classList.remove(...pref.theme);
+    document.body.children[1].classList.add(theme);
+  }, [theme]);
 
   return (
     <header className={id ? 'hidden' : ''}>
