@@ -20,30 +20,31 @@ export default function Header() {
   const dispatch = useDispatch();
 
   const toggleType = () => {
-    if (type !== 0) {
-      const i = (pref.type.indexOf(type) + 1) % pref.type.length;
-      dispatch(setType(pref.type[i]), [dispatch, type]);
-      localStorage.setItem('type', type);
-      reset();
-    }
+    const i = (pref.type.indexOf(type) + 1) % pref.type.length;
+    dispatch(setType(pref.type[i]), [dispatch, type]);
+    localStorage.setItem('type', type);
+    reset();
   };
 
   const toggleLimit = () => {
-    if (limit !== 0) {
-      const i = (pref.limit.indexOf(limit) + 1) % pref.limit.length;
-      dispatch(setLimit(pref.limit[i]), [dispatch, limit]);
-      localStorage.setItem('limit', limit);
-      reset();
-    }
+    const i = (pref.limit.indexOf(limit) + 1) % pref.limit.length;
+    dispatch(setLimit(pref.limit[i]), [dispatch, limit]);
+    localStorage.setItem('limit', limit);
+    reset();
   };
 
   const toggleTheme = () => {
-    if (theme !== 0) {
-      const i = (pref.theme.indexOf(theme) + 1) % pref.theme.length;
-      dispatch(setTheme(pref.theme[i]), [dispatch, theme]);
-      localStorage.setItem('theme', theme);
-    }
+    const i = (pref.theme.indexOf(theme) + 1) % pref.theme.length;
+    dispatch(setTheme(pref.theme[i]), [dispatch, theme]);
+    localStorage.setItem('theme', theme);
   };
+
+  useEffect(() => {
+    if (theme !== '') {
+      document.body.children[1].classList.remove(...pref.theme);
+      document.body.children[1].classList.add(theme);
+    }
+  }, [theme]);
 
   useEffect(() => {
     const type = localStorage.getItem('type') || 'words';
@@ -57,11 +58,6 @@ export default function Header() {
     dispatch(setList(library[type]));
     dispatch(setTimer(limit));
   }, [dispatch]);
-
-  useEffect(() => {
-    document.body.children[1].classList.remove(...pref.theme);
-    document.body.children[1].classList.add(theme);
-  }, [theme]);
 
   return (
     <header className={id ? 'hidden' : ''}>
