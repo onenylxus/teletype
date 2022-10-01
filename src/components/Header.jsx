@@ -22,21 +22,21 @@ export default function Header() {
   const toggleType = () => {
     const i = (pref.type.indexOf(type) + 1) % pref.type.length;
     dispatch(setType(pref.type[i]), [dispatch, type]);
-    localStorage.setItem('type', type);
+    localStorage.setItem('type', pref.type[i]);
     reset();
   };
 
   const toggleLimit = () => {
     const i = (pref.limit.indexOf(limit) + 1) % pref.limit.length;
     dispatch(setLimit(pref.limit[i]), [dispatch, limit]);
-    localStorage.setItem('limit', limit);
+    localStorage.setItem('limit', pref.limit[i]);
     reset();
   };
 
   const toggleTheme = () => {
     const i = (pref.theme.indexOf(theme) + 1) % pref.theme.length;
     dispatch(setTheme(pref.theme[i]), [dispatch, theme]);
-    localStorage.setItem('theme', theme);
+    localStorage.setItem('theme', pref.theme[i]);
   };
 
   useEffect(() => {
