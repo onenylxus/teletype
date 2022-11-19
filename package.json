@@ -5,7 +5,6 @@
   "author": "Nicholas Ng",
   "license": "MIT",
   "dependencies": {
-    "json-loader": "^0.5.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-redux": "^8.0.2",

@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setType, setLimit, setTheme, setTimer, setList } from '../services/actions';
 import { reset } from '../services/reset';
-import library from '../library.json';
+import library from '../services/library';
 import '../styles/Header.scss';
 
 export const pref = {
-  type: ['words'],
+  type: ['words', 'numbers'],
   limit: [15, 30, 60, 90, 120],
   theme: ['dark', 'light']
 };
