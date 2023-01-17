@@ -28,7 +28,7 @@ export default function Tester() {
           const bool = current + list.indexOf(current, history.length) === i;
           return (
             <div className="word" ref={bool ? ref : null} key={i}>
-              {bool ? <span className="blink" style={{ left: typed.length * 16.1 }} ref={caretRef} id="caret">|</span> : null}
+              {bool ? <span className="blink" style={{ left: typed.length * 16.81 }} ref={caretRef} id="caret">|</span> : null}
               {word.split('').map((char, charIndex) => <span key={char + charIndex}>{char}</span>)}
               {bool ? extra.map((char, charIndex) => <span className="wrong extra" key={char + charIndex}>{char}</span>) : history[index] ? history[index].slice(list[index].length).split('').map((char, charIndex) => <span className="wrong extra" key={char + charIndex}>{char}</span>) : null}
             </div>
