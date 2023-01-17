@@ -1,6 +1,6 @@
 import { setTimer, setTimerId, setList } from './actions';
 import { store } from './store';
-import library from '../services/library';
+import library from '../library.json';
 
 export const reset = () => {
   const { dispatch, getState } = store;

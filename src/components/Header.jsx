@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setType, setLimit, setTheme, setTimer, setList } from '../services/actions';
 import { reset } from '../services/reset';
-import library from '../services/library';
+import library from '../library.json';
 import '../styles/Header.scss';
 
 export const pref = {
-  type: ['words', 'numbers'],
+  type: ['words', 'javascript'],
   limit: [15, 30, 60, 90, 120],
   theme: ['dark', 'light']
 };
@@ -47,12 +47,28 @@ export default function Header() {
   }, [theme]);
 
   useEffect(() => {
-    const type = localStorage.getItem('type') || 'words';
-    const limit = +localStorage.getItem('limit') || 60;
-    const theme = localStorage.getItem('theme') || 'dark';
-
+    let type = 'words';
+    if (pref.type.includes(localStorage.getItem('type'))) {
+      type = localStorage.getItem('type');
+    } else {
+      localStorage.setItem('type', type);
+    }
     dispatch(setType(type));
+
+    let limit = 60;
+    if (pref.limit.includes(localStorage.getItem('limit'))) {
+      limit = localStorage.getItem('limit');
+    } else {
+      localStorage.setItem('limit', limit);
+    }
     dispatch(setLimit(limit));
+
+    let theme = 'dark';
+    if (pref.theme.includes(localStorage.getItem('theme'))) {
+      theme = localStorage.getItem('theme');
+    } else {
+      localStorage.setItem('theme', theme);
+    }
     dispatch(setTheme(theme));
 
     dispatch(setList(library[type]));
