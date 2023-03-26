@@ -1,11 +1,13 @@
+// Import
 import { useSelector } from 'react-redux';
 import { reset } from '../services/reset';
 import '../styles/Result.scss';
 
-export default function Result() {
+// Result component
+const Result = () => {
   const {
     pref: { limit },
-    tester: { list, history, current },
+    tester: { list, history },
   } = useSelector((state) => state);
 
   const result = history.map((word, i) => word === list[i]);
@@ -22,4 +24,7 @@ export default function Result() {
       <a onClick={() => reset()}>Restart</a>
     </div>
   );
-}
+};
+
+// Export
+export default Result;

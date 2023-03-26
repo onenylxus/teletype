@@ -1,8 +1,10 @@
+// Import
 import { setChar, appendTyped, prevWord } from './actions';
 import { reset } from './reset';
 import { start } from './start';
 import { store } from './store';
 
+// Backspace function
 function backspace() {
   const { dispatch, getState } = store;
   const {
@@ -19,6 +21,7 @@ function backspace() {
   }
 }
 
+// Record function
 export const record = (key) => {
   const { dispatch, getState } = store;
   const {

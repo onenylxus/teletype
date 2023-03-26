@@ -1,3 +1,4 @@
+// Export
 export default {
   words: [
     'the',

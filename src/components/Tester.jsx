@@ -1,9 +1,11 @@
+// Import
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setRef, setCaretRef } from '../services/actions';
 import '../styles/Tester.scss';
 
-export default function Tester() {
+// Tester component
+const Tester = () => {
   const {
     timer: { now },
     tester: { list, history, current, typed },
@@ -37,4 +39,7 @@ export default function Tester() {
       </div>
     </div>
   );
-}
+};
+
+// Export
+export default Tester;

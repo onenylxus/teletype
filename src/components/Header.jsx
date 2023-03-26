@@ -1,3 +1,4 @@
+// Import
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setType, setLimit, setTheme, setTimer, setList } from '../services/actions';
@@ -5,13 +6,15 @@ import { reset } from '../services/reset';
 import library from '../library.json';
 import '../styles/Header.scss';
 
+// Typing mode preference
 export const pref = {
   type: ['words', 'javascript'],
   limit: [15, 30, 60, 90, 120],
   theme: ['dark', 'light']
 };
 
-export default function Header() {
+// Header component
+const Header = () => {
   const {
     pref: { type, limit, theme },
     timer: { id },
@@ -85,4 +88,7 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
+
+// Export
+export default Header;
