@@ -1,6 +1,12 @@
 // Import
-import { createStore } from 'redux';
-import { reducer } from './reducer';
+import { configureStore } from '@reduxjs/toolkit';
+import { prefReducer, timerReducer, testerReducer } from './reducer';
 
 // Export
-export const store = createStore(reducer);
+export const store = configureStore({
+  reducer: {
+    pref: prefReducer,
+    timer: timerReducer,
+    tester: testerReducer,
+  },
+});

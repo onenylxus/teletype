@@ -8,10 +8,10 @@ import { store } from './store';
 function backspace() {
   const { dispatch, getState } = store;
   const {
-    tester: { list, history, current, typed, ref },
+    tester: { list, history, current, typed },
   } = getState();
   const index = list.indexOf(current);
-  const element = ref.current;
+  const element = document.getElementsByClassName('word')[history.length];
 
   if (typed.length === 0 && history[index - 1] !== list[index - 1]) {
     dispatch(prevWord());
@@ -27,14 +27,8 @@ export const record = (key) => {
   const {
     pref: { limit },
     timer: { now, id },
-    tester: { list, history, current, typed, ref, caretRef },
+    tester: { history, current, typed },
   } = getState();
-
-  console.log({
-    pref: { limit },
-    timer: { now, id },
-    tester: { list, history, current, typed, ref, caretRef },
-  });
 
   if (now === 0) {
     if (key === 'Tab') {
@@ -47,10 +41,10 @@ export const record = (key) => {
     start();
   }
 
-  const element = ref.current;
+  const element = document.getElementsByClassName('word')[history.length];
   element.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-  const caret = caretRef.current;
+  const caret = document.getElementById('caret');
   caret.classList.remove('blink');
   setTimeout(() => caret.classList.add('blink'), 500);
 

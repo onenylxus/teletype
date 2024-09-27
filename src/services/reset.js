@@ -1,5 +1,5 @@
 // Import
-import { setTimer, setTimerId, setList } from './actions';
+import { setList, setTimer, setTimerId } from './actions';
 import { store } from './store';
 import library from '../library.json';
 
