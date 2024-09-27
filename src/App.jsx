@@ -14,7 +14,7 @@ const App = () => {
   const dispatch = useDispatch();
   const {
 		timer: { now, id },
-		tester: { current, typed, ref },
+		tester: { history, current, typed },
 	} = useSelector((state) => state);
 
   useEffect(() => {
@@ -29,21 +29,21 @@ const App = () => {
 
   useEffect(() => {
     const index = typed.length - 1;
-    const element = ref ? ref.current : null;
+    const element = document.getElementsByClassName('word')[history.length];
 
     if (element) {
       element.children[index + 1].classList.add(current[index] === typed[index] ? 'right' : 'wrong');
     }
-  }, [current, typed, ref]);
+  }, [current, typed]);
 
   useEffect(() => {
     const index = typed.length;
-    const element = ref ? ref.current : null;
+    const element = document.getElementsByClassName('word')[history.length];
 
     if (element && index < current.length) {
       element.children[index + 1].classList.remove('wrong', 'right');
     }
-  }, [current.length, typed, ref]);
+  }, [current.length, typed]);
 
   useEffect(() => {
     if (now === 0 && id) {
