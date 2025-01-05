@@ -8,7 +8,7 @@ import '../styles/Header.scss';
 
 // Typing mode preference
 export const pref = {
-  type: ['words', 'javascript'],
+  type: Object.keys(library),
   limit: [15, 30, 60, 90, 120],
   theme: ['dark', 'light']
 };

@@ -13,7 +13,7 @@ const Footer = () => {
       <span className="hint">Press <kbd>Tab</kbd> to restart</span>
       <footer>
         <span>
-          created by {' '} <a target="_blank" rel="noreferrer" href="https://www.github.com/onenylxus">onenylxus</a>
+          created by <a target="_blank" rel="noreferrer" href="https://www.github.com/onenylxus">onenylxus</a>
         </span>
       </footer>
     </div>
