@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
 :root {
+  --font-family: 'Roboto Mono', source-code-pro, monospace;
   --color-bg: #181818;
   --color-fg: #2a2f34;
   --color-font: #e1e1e1;
@@ -9,7 +10,7 @@
 
 body {
   margin: 0;
-  font-family: 'Roboto Mono', source-code-pro, monospace;
+  font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -44,6 +45,7 @@ button {
     border: none;
     outline-style: none;
     padding: 5px;
+    font-family: var(--font-family);
     font-size: 12pt;
   }
 
