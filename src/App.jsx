@@ -1,4 +1,3 @@
-// Import
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTimerId } from './services/actions';
@@ -9,8 +8,7 @@ import Result from './components/Result';
 import Tester from './components/Tester';
 import './themes.scss';
 
-// Application
-const App = () => {
+export default function App() {
   const dispatch = useDispatch();
   const {
 		timer: { now, id },
@@ -60,6 +58,3 @@ const App = () => {
     </>
   );
 };
-
-// Export
-export default App;

@@ -1,9 +1,7 @@
-// Import
 import { useSelector } from 'react-redux';
 import '../styles/Footer.scss';
 
-// Footer component
-const Footer = () => {
+export default function Footer() {
   const {
     timer: { id },
   } = useSelector((state) => state);
@@ -19,6 +17,3 @@ const Footer = () => {
     </div>
   );
 };
-
-// Export
-export default Footer;

@@ -1,10 +1,8 @@
-// Import
 import { useSelector } from 'react-redux';
 import { reset } from '../services/reset';
 import '../styles/Result.scss';
 
-// Result component
-const Result = () => {
+export default function Result() {
   const {
     pref: { limit },
     tester: { list, history },
@@ -25,6 +23,3 @@ const Result = () => {
     </div>
   );
 };
-
-// Export
-export default Result;

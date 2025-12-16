@@ -1,9 +1,8 @@
-// Import
+
 import { useSelector } from 'react-redux';
 import '../styles/Tester.scss';
 
-// Tester component
-const Tester = () => {
+export default function Tester() {
   const {
     timer: { now },
     tester: { list, history, current, typed },
@@ -29,6 +28,3 @@ const Tester = () => {
     </div>
   );
 };
-
-// Export
-export default Tester;

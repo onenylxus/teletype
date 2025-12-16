@@ -1,4 +1,3 @@
-// Import
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setType, setLimit, setTheme, setTimer, setList } from '../services/actions';
@@ -13,8 +12,7 @@ export const pref = {
   theme: ['dark', 'light']
 };
 
-// Header component
-const Header = () => {
+export default function Header() {
   const {
     pref: { type, limit, theme },
     timer: { id },
@@ -89,6 +87,3 @@ const Header = () => {
     </header>
   );
 };
-
-// Export
-export default Header;
