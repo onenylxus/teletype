@@ -11,5 +11,6 @@ export const decTimer = createAction('timer/decTimer');
 export const setWord = createAction('tester/setWord');
 export const setChar = createAction('tester/setChar');
 export const setList = createAction('tester/setList');
+export const appendInput = createAction('tester/appendInput');
 export const appendTyped = createAction('tester/appendTyped');
 export const prevWord = createAction('tester/prevWord');

@@ -1,5 +1,5 @@
 // Import
-import { setChar, appendTyped, prevWord } from './actions';
+import { appendInput, setChar, appendTyped, prevWord } from './actions';
 import { reset } from './reset';
 import { start } from './start';
 import { store } from './store';
@@ -47,6 +47,32 @@ export const record = (key) => {
   const caret = document.getElementById('caret');
   caret.classList.remove('blink');
   setTimeout(() => caret.classList.add('blink'), 500);
+
+  if (key !== 'Tab') {
+    const nextTyped =
+      key === 'Backspace' ? typed.slice(0, typed.length - 1) : typed + key;
+    const kind =
+      key === 'Backspace'
+        ? 'correction'
+        : key === ' '
+          ? typed === current
+            ? 'commit'
+            : 'error'
+          : current.slice(0, nextTyped.length) === nextTyped
+            ? 'input'
+            : 'error';
+
+    dispatch(
+      appendInput({
+        key,
+        kind,
+        at: Date.now(),
+        wordIndex: history.length,
+        word: current,
+        typed,
+      }),
+    );
+  }
 
   switch (key) {
     case ' ':

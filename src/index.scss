@@ -2,15 +2,12 @@
 
 :root {
   --font-family: 'Roboto Mono', source-code-pro, monospace;
-  --color-bg: #181818;
-  --color-fg: #2a2f34;
-  --color-font: #e1e1e1;
-  --color-tint: #ffaa00;
 }
 
 body {
   margin: 0;
   font-family: var(--font-family);
+  background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -57,7 +54,7 @@ button {
 
 #root {
   display: flex;
-  height: 100%;
+  min-height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
